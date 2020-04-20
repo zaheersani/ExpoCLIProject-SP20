@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 const App = () => {
 
   const buttonClicked = (msg) => {
-    alert("Message: " + msg);
+    alert("Msg: " + msg);
   }
 
   return (
