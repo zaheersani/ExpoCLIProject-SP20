@@ -1,6 +1,31 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
+class Age extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      age: 20
+    }
+  }
+  render() {
+    return (
+      <View style={{ flexDirection: "row", width: "60%", justifyContent: "space-between" }}>
+        <Text style={ageStyles.text}>Age:</Text>
+        <Button title="  -  " onPress={() => this.setState({ age: this.state.age - 1 })} />
+        <Text style={ageStyles.text}>{this.state.age}</Text>
+        <Button title="  +  " />
+      </View>
+    );
+  }
+}
+
+const ageStyles = StyleSheet.create({
+  text: {
+    fontSize: 24
+  }
+});
+
 const App = () => {
   const [getName, setName] = useState({ fName: 'FirstName', lName: 'LastName' });
 
@@ -24,6 +49,7 @@ const App = () => {
           <Button title="Update LastName" onPress={() => setName({ fName: getName.fName, lName: "Bengston2" })}></Button>
         </View>
       </View>
+      <Age />
     </View>
   );
 }
