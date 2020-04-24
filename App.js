@@ -5,16 +5,21 @@ class Age extends React.Component {
   constructor() {
     super();
     this.state = {
-      age: 20
+      age: 20,
+      name: 'Ahmed'
     }
+  }
+  decrement = () => {
+    if (this.state.age >= 19)
+      this.setState({ age: this.state.age - 1 })
   }
   render() {
     return (
       <View style={{ flexDirection: "row", width: "60%", justifyContent: "space-between" }}>
         <Text style={ageStyles.text}>Age:</Text>
-        <Button title="  -  " onPress={() => this.setState({ age: this.state.age - 1 })} />
+        <Button title="  -  " onPress={this.decrement} />
         <Text style={ageStyles.text}>{this.state.age}</Text>
-        <Button title="  +  " />
+        <Button title="  +  " onPress={() => this.setState({ age: this.state.age + 1 })} />
       </View>
     );
   }
